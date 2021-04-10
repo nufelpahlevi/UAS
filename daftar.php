@@ -1,47 +1,11 @@
-
-<?php
-session_start();
-include "koneksi.php";
-if(isset($_SESSION['login'])){
-	header('location:index.php');
-	exit;
-}
-	if(isset($_POST['login']))
-	{
-		$user = $_POST['user'];
-		$pass = md5($_POST['pass']);
-		$sql=mysqli_query($koneksi,"SELECT * FROM akun Where user='$user' and password='$pass'");
-	
-		if(mysqli_affected_rows($koneksi)>0){
-		$_SESSION['login'] = $user ;
-		header('location:index.php');
-		exit;
-		}
-	}
-	
-
-
-
-
-// if (isset($_POST['login'])) {
-// 			$user = $_POST['user'];
-// 			$pass = $_POST['pass'];
-// 	if ($user === "dianeka" && $pass == "0000") {
-// 		$_SESSION['login'] = $user;
-// 		echo "<script>alert('Anda Berhasil Login')</script>";
-// 		echo "<center><br><br><blockquote id='timeEvent'><a href='index.php'>Form Data relawan</blockquote></center>";
-// 	}else {
-	
-// 	}
-// }
- ?>
+<?php include 'koneksi.php'; ?>
 <!DOCTYPE HTML>
 <html>
     <head>
 	<link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
   	<link rel="stylesheet" type="text/css" href="style.css">
-        <title>Halaman Login</title>
+        <title>Signup</title>
         <style>
 
 		blockquote {
@@ -92,17 +56,29 @@ if(isset($_SESSION['login'])){
 	<div class="container">
         <div class="row">
             <div class="col-lg-8 col-sm-12 mx-auto">
-			
-                <div class="login">
-				<center><h4>Login</h4></center>
-            <form method="post">
+			    <div class="login">
+				<center><h4>Signup</h4></center>
+                <form action="prosesdaftar.php" method="post" onSubmit="retrun validasi()">
                 <input type="text" name="user" placeholder="USER"><br>
-                <input type="password" name="pass" placeholder="PASSWORD"><br>
-                <input class="btn" type="submit" name="login" id="partyTimeButton" value="Login">
-				
+                <input type="password" name="password" placeholder="PASSWORD"><br>
+                <input class="btn" type="submit" name="login" id="partyTimeButton" value="daftar">
+                
             </form>
-        </div>  
-		<center><blockquote><a href=daftar.php>Daftar   </center></blockquote>   
+        </div>     
 		
     </body>
+    
+    <script type="text/javascript">
+	function validasi() {
+		var user = document.getElementById("user").value;
+		var password = document.getElementById("password").value;		
+		if (user != "" && password!="") {
+			return true;
+		}else{
+			alert('Username dan Password harus di isi !');
+			return false;
+		}
+	}
+ 
+</script>
 </html>

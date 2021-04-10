@@ -95,14 +95,17 @@
 		 		<td>
 		 			<a href="edit.php?id=<?= $data['id']?>" class="btn btn-primary">Edit</a>
 		 			<a href="delete.php?id=<?= $data['id']?>" class="btn btn-danger" >Delete</a>
+					 
 		 		</td>
 		 	</tr>
 		 </tbody>
 		<?php } ?>
 	</table>
-	<a href="input.php" class="btn" id="partyTimeButton">input</a>
 	<a href="cetak.php" class="btn" id="partyTimeButton">Cetak</a>
-	<a href="logout.php" class="btn" id="partyTimeButton">logout</a>
+	<a href="input.php" class="btn" id="partyTimeButton">input</a>
+	<a href="logout.php" class="btn" id="partyTimeButton">logut</a>
+	
+	
 	
 </div>
 </body>

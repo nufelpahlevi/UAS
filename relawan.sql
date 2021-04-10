@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Apr 2021 pada 15.53
+-- Waktu pembuatan: 10 Apr 2021 pada 04.21
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `relawan`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `akun`
+--
+
+CREATE TABLE `akun` (
+  `id` int(11) NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `akun`
+--
+
+INSERT INTO `akun` (`id`, `user`, `password`) VALUES
+(1, 'jamal', '4297f44b13955235245b2497399d7a93'),
+(2, 'calpin', '4d4fe2935a943ce7566be10d2f36a09b');
 
 -- --------------------------------------------------------
 
@@ -42,7 +62,7 @@ CREATE TABLE `covid` (
 --
 
 INSERT INTO `covid` (`id`, `nama`, `alamat`, `provinsi`, `email`, `hp`, `ahli`) VALUES
-(46, 'Dian Eka Prasetyo', 'jalan moh khamid ', 'Banten - Serang', 'ekoooodok@ gmail.com', '085883225988', 'Barista');
+(46, 'Dian Eka Prasetyo', 'jalan moh khamid ', 'DKI Jakarta - Jakarta', 'ekoooodok@ gmail.com', '085883225988', 'Barista');
 
 -- --------------------------------------------------------
 
@@ -100,6 +120,12 @@ INSERT INTO `provinsi` (`provinsi`, `prov_id`) VALUES
 --
 
 --
+-- Indeks untuk tabel `akun`
+--
+ALTER TABLE `akun`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `covid`
 --
 ALTER TABLE `covid`
@@ -116,10 +142,16 @@ ALTER TABLE `provinsi`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `akun`
+--
+ALTER TABLE `akun`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `covid`
 --
 ALTER TABLE `covid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT untuk tabel `provinsi`
